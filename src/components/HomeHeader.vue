@@ -59,14 +59,13 @@
             height: 4px;
             bottom: 0;
             left: 50%;
-            background: var(--font-primary-2);
+            background: var(--font-color);
             transition: all 0.5s ease;
             transform: translateX(-50%);
             border-radius: 3px;
         }
         li:hover::after {
             width: 100%;
-            background: var(--font-color);
         }
     }
 
