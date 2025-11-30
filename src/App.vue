@@ -1,9 +1,11 @@
 <script setup>
-import Home from './components/Home.vue';
+import HomeHeader from './components/content/HomeHeader.vue';
+
 </script>
 
 <template>
-	<Home />
+	<HomeHeader />
+	<RouterView />
 </template>
 
 <style>

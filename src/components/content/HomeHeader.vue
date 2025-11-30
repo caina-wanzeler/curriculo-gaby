@@ -6,10 +6,10 @@
     <div class="header">
         <h1>Gaby Lima</h1>
         <ul>
-            <li>Inicio</li>
-            <li>Serviços</li>
-            <li>Portfólio</li>
-            <li>Contato</li>
+            <li><RouterLink to="/">Inicio</RouterLink></li>
+            <li><RouterLink to="/portfolio">Portfólio</RouterLink></li>
+            <li><RouterLink to="/contato">Contato</RouterLink></li>
+            <li><RouterLink to="/sobre">Sobre</RouterLink></li>
         </ul>
     </div>
 </template>
@@ -17,6 +17,11 @@
 
 
 <style scoped>
+    a {
+        text-decoration: none;
+        color: var(--font-color);
+        transition: color 0.3s ease;
+    }
     .header {
         background-color: var(--bg-primary-1);
         color: var(--font-color);
@@ -43,12 +48,11 @@
         }
         li {
             font-size: 1.1rem;
-            transition: color 0.3s ease;
 
             position: relative;
             display: inline-block;
         }
-        li:hover {
+        a:hover {
             color: var(--font-primary-2);
             cursor: pointer;
         }

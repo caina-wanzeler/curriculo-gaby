@@ -1,10 +1,12 @@
 <script setup>
-import HomeHeader from './HomeHeader.vue';
 
 </script>
 
 <template>
-  <HomeHeader />
+    <h2>Contatos</h2>
+    <ul>
+        <li>E-mail</li>
+    </ul>
 </template>
 
 <style scoped>
