@@ -1,16 +1,49 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue';
 
+const windowWidth = ref(window.innerWidth);
+const widthMobile = 600;
+
+const onResize = () => {
+    windowWidth.value = window.innerWidth;
+}
+
+onMounted(() => {
+    window.addEventListener('resize', onResize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', onResize);
+});
+
+
+const isDesktop = () => windowWidth.value > widthMobile;
+
+const emit = defineEmits(['open-menu']);
+
+const openMenu = () => {
+    emit('open-menu');
+}
 </script>
 
 <template>
     <div class="header">
         <h1>Gaby Lima</h1>
-        <ul>
-            <li><RouterLink to="/">Inicio</RouterLink></li>
-            <li><RouterLink to="/portfolio">Portfólio</RouterLink></li>
-            <li><RouterLink to="/contato">Contato</RouterLink></li>
-            <li><RouterLink to="/sobre">Sobre</RouterLink></li>
-        </ul>
+        <div class="menu">
+            <nav v-if="isDesktop()" class="menu-desktop">
+                <RouterLink to="/">Inicio</RouterLink>
+                <RouterLink to="/portfolio">Portfólio</RouterLink>
+                <RouterLink to="/contato">Contato</RouterLink>
+                <RouterLink to="/sobre">Sobre</RouterLink>
+            </nav>
+
+            <div v-else @click="openMenu" class="hamburguer">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+        
     </div>
 </template>
 
@@ -21,6 +54,21 @@
         text-decoration: none;
         color: var(--font-color);
         transition: color 0.3s ease;
+    }
+    .hamburguer {
+        width: 33px;
+        height: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+
+        .line {
+            width: 100%;
+            height: 5px;
+            border-radius: 2px;
+            background-color: aliceblue;
+        }
     }
     .header {
         background-color: var(--bg-primary-1);
@@ -40,23 +88,15 @@
             color: var(--font-primary-2);
         }
 
-        ul {
-            list-style-type: none;
-
+        .menu-desktop {
             display: flex;
             gap: 25px;
-        }
-        li {
-            font-size: 1.1rem;
-
-            position: relative;
-            display: inline-block;
         }
         a:hover {
             color: var(--font-primary-2);
             cursor: pointer;
         }
-        li::after {
+        a::after {
             content: '';
             position: absolute;
             width: 0;
@@ -68,7 +108,7 @@
             transform: translateX(-50%);
             border-radius: 3px;
         }
-        li:hover::after {
+        a:hover::after {
             width: 100%;
         }
     }
@@ -100,4 +140,5 @@
             background-position: -100% 0;
         }
     }
+
 </style>

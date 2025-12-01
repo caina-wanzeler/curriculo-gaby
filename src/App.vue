@@ -1,11 +1,23 @@
 <script setup>
+import { ref } from 'vue';
+import HomeBurguer from './components/content/HomeBurguer.vue';
 import HomeHeader from './components/content/HomeHeader.vue';
+
+const menuState = ref(false);
+
+const clickMenu = () => {
+	menuState.value = !menuState.value;
+}
 
 </script>
 
 <template>
-	<HomeHeader />
-	<RouterView />
+	<div>
+		<HomeHeader @open-menu="clickMenu"/>
+		<RouterView />
+	</div>
+	<HomeBurguer v-model:visible="menuState"/>
+	
 </template>
 
 <style>
@@ -15,6 +27,8 @@ import HomeHeader from './components/content/HomeHeader.vue';
 	* {
 		margin: 0;
 		padding: 0;
+		box-shadow: none;
+		box-sizing: border-box;
 		
 		font-family: 'Poppins', sans-serif;
 		font-weight: 500;
