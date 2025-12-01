@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue';
+import Navigation from '../util/Navigation.vue';
 
 const windowWidth = ref(window.innerWidth);
 const widthMobile = 600;
@@ -31,19 +32,14 @@ const openMenu = () => {
         <h1>Gaby Lima</h1>
         <div class="menu">
             <nav v-if="isDesktop()" class="menu-desktop">
-                <RouterLink to="/">Inicio</RouterLink>
-                <RouterLink to="/portfolio">Portfólio</RouterLink>
-                <RouterLink to="/contato">Contato</RouterLink>
-                <RouterLink to="/sobre">Sobre</RouterLink>
+                <RouterLink to="/curriculo-gaby/">Inicio</RouterLink>
+                <RouterLink to="/curriculo-gaby/portfolio">Portfólio</RouterLink>
+                <RouterLink to="/curriculo-gaby/contato">Contato</RouterLink>
+                <RouterLink to="/curriculo-gaby/sobre">Sobre</RouterLink>
             </nav>
 
-            <div v-else @click="openMenu" class="hamburguer">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+            <Navigation v-else @click-menu="openMenu"/>
         </div>
-        
     </div>
 </template>
 
@@ -54,6 +50,8 @@ const openMenu = () => {
         text-decoration: none;
         color: var(--font-color);
         transition: color 0.3s ease;
+        cursor: pointer;
+        position: relative;
     }
     .hamburguer {
         width: 33px;
@@ -94,17 +92,16 @@ const openMenu = () => {
         }
         a:hover {
             color: var(--font-primary-2);
-            cursor: pointer;
         }
         a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 4px;
+            height: 3px;
             bottom: 0;
             left: 50%;
             background: var(--font-color);
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             transform: translateX(-50%);
             border-radius: 3px;
         }

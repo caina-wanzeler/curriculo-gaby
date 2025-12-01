@@ -5,7 +5,7 @@ import HomeHeader from './components/content/HomeHeader.vue';
 
 const menuState = ref(false);
 
-const clickMenu = () => {
+const openMenu = () => {
 	menuState.value = !menuState.value;
 }
 
@@ -13,7 +13,7 @@ const clickMenu = () => {
 
 <template>
 	<div>
-		<HomeHeader @open-menu="clickMenu"/>
+		<HomeHeader @open-menu="openMenu"/>
 		<RouterView />
 	</div>
 	<HomeBurguer v-model:visible="menuState"/>

@@ -9,22 +9,22 @@ import ContatoView from '@/components/views/ContatoView.vue';
 
 const routes = [
     {
-        path: '/',
+        path: '/curriculo-gaby/',
         name: 'home',
         component: HomeView
     },
     {
-        path: '/portfolio',
+        path: '/curriculo-gaby/portfolio',
         name: 'portfolio',
         component: PortfolioView
     },
     {
-        path: '/contato',
+        path: '/curriculo-gaby/contato',
         name: 'contato',
         component: ContatoView
     },
     {
-        path: '/sobre',
+        path: '/curriculo-gaby/sobre',
         name: 'sobre',
         component: InicioView
     }

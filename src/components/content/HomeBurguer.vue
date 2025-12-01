@@ -1,4 +1,6 @@
 <script setup>
+import Navigation from '../util/Navigation.vue';
+
 
 const props = defineProps({
     visible: Boolean
@@ -16,18 +18,16 @@ const closeMenu = () => {
     <div>
         <div class="panel-wrap" :class="{ visible: props.visible }">
             <div class="menu-mobile">
-                <div class="menu-header">
-                    <button @click="closeMenu()">
-                        Fechar
-                    </button>
-                    <h2>Menu</h2>
-                </div>
+                <Navigation 
+                    class="close-menu" 
+                    @click-menu="closeMenu"
+                />
                 
                 <nav>
-                    <RouterLink to="/">Inicio</RouterLink>
-                    <RouterLink to="/portfolio">Portfólio</RouterLink>
-                    <RouterLink to="/contato">Contato</RouterLink>
-                    <RouterLink to="/sobre">Sobre</RouterLink>
+                    <RouterLink to="/curriculo-gaby/">Inicio</RouterLink>
+                    <RouterLink to="/curriculo-gaby/portfolio">Portfólio</RouterLink>
+                    <RouterLink to="/curriculo-gaby/contato">Contato</RouterLink>
+                    <RouterLink to="/curriculo-gaby/sobre">Sobre</RouterLink>
                 </nav>
             </div>
         </div>
@@ -59,6 +59,7 @@ const closeMenu = () => {
         }
     }
     a {
+        font-size: 0.9rem;
         text-decoration: none;
         color: var(--font-color);
         transition: color 0.3s ease;
@@ -69,7 +70,7 @@ const closeMenu = () => {
         bottom: 0;
         right: 0;
         background-color: rgb(82, 69, 180);
-        width: 11rem;
+        width: 5rem;
         transform: translateX(100%);
         transition: 0.23s ease-out;
         z-index: 1;
@@ -80,6 +81,11 @@ const closeMenu = () => {
     .menu-mobile {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+
+        margin-top: 20px;
 
         nav {
             display: flex;
