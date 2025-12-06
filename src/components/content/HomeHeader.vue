@@ -41,7 +41,7 @@ const openMenu = () => {
                 <RouterLink to="/curriculo-gaby/contato">Contato</RouterLink>
                 <RouterLink to="/curriculo-gaby/sobre">Sobre</RouterLink>
             </nav>
-            <img src="../../images/hero.png" alt="Gaby Lima Foto">
+            <img src="../../images/hero.jpeg" alt="Gaby Lima Foto">
         </div>
     </div>
 </template>
@@ -56,23 +56,25 @@ const openMenu = () => {
         cursor: pointer;
         position: relative;
     }
-    .hero {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        width: 95%;
-
-        img {
+    h1 {
+        font-family: 'Imperial Script', 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 3.3rem;
+        color: var(--font-primary-2);
+    }
+    img {
             width: 90px;
             height: auto;
             border-radius: 100%;
         }
 
-        .navigation {
-            display: flex;
-            align-self: center;
-        }
+    .hero {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 95%;
     }
     .header {
         background-color: var(--bg-primary-1);
@@ -85,12 +87,6 @@ const openMenu = () => {
         flex-direction: column;
         align-items: center;
 
-        h1 {
-            font-family: 'Imperial Script', 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 3.3rem;
-            color: var(--font-primary-2);
-        }
 
         .menu-desktop {
             display: flex;
@@ -142,6 +138,48 @@ const openMenu = () => {
         }
         100% {
             background-position: -100% 0;
+        }
+    }
+
+    @media (max-width: 440px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+        img {
+            width: 80px;
+        }
+    }
+
+    @media (max-width: 350px) {
+        h1 {
+            font-size: 2.1rem;
+        }
+        p {
+            font-size: 0.65rem;
+        }
+        img {
+            width: 70px;
+        }
+        .navigation {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+        .header {
+            padding: 0 5px;
+        }
+    }
+    @media (max-width: 270px) {
+        h1 {
+            font-size: 1.6rem;
+        }
+        p {
+            font-size: 0.5rem;
+        }
+        img {
+            width: 60px;
         }
     }
 
