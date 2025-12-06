@@ -1,52 +1,64 @@
 <script setup>
+import Experience from '../util/Experience.vue';
 
+const empregos = {
+    emprego1: {
+        index: 1,
+        title: "Escritório de Advocacia",
+        activities: [
+            'Direito Previdênciario', 
+            'Direito Civil',
+            'Direito Trabalhista'
+        ],
+        time: '1 mês'
+    },
+    emprego2: {
+        index: 2,
+        title: "Procon Estadual",
+        activities: [
+            'Direito do Consumidor'
+        ],
+        time: '1 ano'
+    },
+    emprego3: {
+        index: 3,
+        title: "Tribunal Regional do Trabalho",
+        activities: [
+            'Direito Trabalhista'
+        ],
+        time: 'Atual 08/25'
+    }
+}
 </script>
 
 <template>
-    <h1>experiências</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur 
-        adipiscing elit. Quisque faucibus ex 
-        sapien vitae pellentesque sem placerat. 
-        In id cursus mi pretium tellus duis 
-        convallis. Tempus leo eu aenean sed diam 
-        urna tempor. Pulvinar vivamus fringilla 
-        lacus nec metus bibendum egestas. Iaculis 
-        massa nisl malesuada lacinia integer nunc 
-        posuere. Ut hendrerit semper vel class 
-        aptent taciti sociosqu. Ad litora torquent 
-        per conubia nostra inceptos himenaeos.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur 
-        adipiscing elit. Quisque faucibus ex 
-        sapien vitae pellentesque sem placerat. 
-        In id cursus mi pretium tellus duis 
-        convallis. Tempus leo eu aenean sed diam 
-        urna tempor. Pulvinar vivamus fringilla 
-        lacus nec metus bibendum egestas. Iaculis 
-        massa nisl malesuada lacinia integer nunc 
-        posuere. Ut hendrerit semper vel class 
-        aptent taciti sociosqu. Ad litora torquent 
-        per conubia nostra inceptos himenaeos.
-    </p>
-    <p>
-        Lorem ipsum dolor sit amet consectetur 
-        adipiscing elit. Quisque faucibus ex 
-        sapien vitae pellentesque sem placerat. 
-        In id cursus mi pretium tellus duis 
-        convallis. Tempus leo eu aenean sed diam 
-        urna tempor. Pulvinar vivamus fringilla 
-        lacus nec metus bibendum egestas. Iaculis 
-        massa nisl malesuada lacinia integer nunc 
-        posuere. Ut hendrerit semper vel class 
-        aptent taciti sociosqu. Ad litora torquent 
-        per conubia nostra inceptos himenaeos.
-    </p>
+    <h2>Experiências</h2>
+    <div class="data">
+        <Experience
+            class="experience"
+            v-for="emprego in empregos" 
+            v-bind:key="emprego.index"
+            v-bind:title="emprego.title"
+            v-bind:activities="emprego.activities"
+            v-bind:time="emprego.time"
+        />
+    </div>
 </template>
 
 <style scoped>
-    p {
-        margin: 20px 10px;
+    .data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        margin: 20px;
+    }
+    h2 {
+        text-align: center;
+
+        padding-top: 14px;
+
+        font-size: 2rem;
     }
 </style>

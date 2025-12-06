@@ -16,8 +16,8 @@ const clickMenu = () => {
 
 <style scoped>
     .hamburguer {
-        width: 33px;
-        height: 26px;
+        width: 44px;
+        height: 38px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -25,7 +25,7 @@ const clickMenu = () => {
 
         .line {
             width: 100%;
-            height: 5px;
+            height: 8px;
             border-radius: 2px;
             background-color: aliceblue;
         }

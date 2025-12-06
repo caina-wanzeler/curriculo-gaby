@@ -68,10 +68,10 @@ const closeMenu = () => {
         position: fixed;
         top: 0;
         bottom: 0;
-        right: 0;
+        left: 0;
         background-color: rgb(82, 69, 180);
         width: 5rem;
-        transform: translateX(100%);
+        transform: translateX(-100%);
         transition: 0.23s ease-out;
         z-index: 1;
     }

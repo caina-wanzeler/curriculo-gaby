@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue';
 import Navigation from '../util/Navigation.vue';
 
 const windowWidth = ref(window.innerWidth);
-const widthMobile = 600;
+const widthMobile = 700;
 
 const onResize = () => {
     windowWidth.value = window.innerWidth;
@@ -29,16 +29,19 @@ const openMenu = () => {
 
 <template>
     <div class="header">
-        <h1>Gaby Lima</h1>
-        <div class="menu">
+        <div class="hero">
+            <Navigation class="navigation" v-if="!isDesktop()" @click-menu="openMenu"/>
+            <div class="worker">
+                <h1>Gaby Lima</h1>
+                <p>Graduando em Direito</p>
+            </div>
             <nav v-if="isDesktop()" class="menu-desktop">
                 <RouterLink to="/curriculo-gaby/">Inicio</RouterLink>
                 <RouterLink to="/curriculo-gaby/portfolio">Portfólio</RouterLink>
                 <RouterLink to="/curriculo-gaby/contato">Contato</RouterLink>
                 <RouterLink to="/curriculo-gaby/sobre">Sobre</RouterLink>
             </nav>
-
-            <Navigation v-else @click-menu="openMenu"/>
+            <img src="../../images/hero.png" alt="Gaby Lima Foto">
         </div>
     </div>
 </template>
@@ -53,30 +56,33 @@ const openMenu = () => {
         cursor: pointer;
         position: relative;
     }
-    .hamburguer {
-        width: 33px;
-        height: 26px;
+    .hero {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: space-between;
-        cursor: pointer;
 
-        .line {
-            width: 100%;
-            height: 5px;
-            border-radius: 2px;
-            background-color: aliceblue;
+        width: 95%;
+
+        img {
+            width: 90px;
+            height: auto;
+            border-radius: 100%;
+        }
+
+        .navigation {
+            display: flex;
+            align-self: center;
         }
     }
     .header {
         background-color: var(--bg-primary-1);
         color: var(--font-color);
 
-        height: 70px;
+        height: auto;
         padding: 0 15px;
 
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
 
         h1 {
@@ -88,6 +94,7 @@ const openMenu = () => {
 
         .menu-desktop {
             display: flex;
+            align-self: center;
             gap: 25px;
         }
         a:hover {

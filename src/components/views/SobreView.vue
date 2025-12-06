@@ -4,8 +4,7 @@
 
 <template>
     <h1>Sobre mim</h1>
-    <p>Sou uma garota bonita, com B de bunduda. <br>
-    Essa sou eu.</p>
+    <p>Me chamo Maria Gabrielly dos Santos Lima</p>
 </template>
 
 <style scoped>
