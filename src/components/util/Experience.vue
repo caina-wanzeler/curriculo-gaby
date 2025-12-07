@@ -47,4 +47,16 @@ const props = defineProps({
     ul {
         list-style-type: none;
     }
+
+    @media (max-width: 600px) {
+        .content {
+            width: 70%;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .content {
+            width: 80%;
+        }
+    }
 </style>
