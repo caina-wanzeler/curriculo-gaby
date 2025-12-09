@@ -54,11 +54,4 @@ const empregos = {
 
         margin: 20px;
     }
-    h2 {
-        text-align: center;
-
-        padding-top: 14px;
-
-        font-size: 2rem;
-    }
 </style>

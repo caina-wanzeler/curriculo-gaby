@@ -41,4 +41,12 @@ const openMenu = () => {
 		--font-primary-1: #568280;
 		--font-primary-2: #c59630;
 	}
+
+	h2 {
+        text-align: center;
+
+        padding-top: 14px;
+
+        font-size: 2rem;
+    }
 </style>

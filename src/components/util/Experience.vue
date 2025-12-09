@@ -50,13 +50,13 @@ const props = defineProps({
 
     @media (max-width: 600px) {
         .content {
-            width: 70%;
+            width: 80%;
         }
     }
 
     @media (max-width: 500px) {
         .content {
-            width: 80%;
+            width: 90%;
         }
     }
 </style>
