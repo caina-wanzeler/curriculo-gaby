@@ -1,47 +1,27 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue';
-import Navigation from '../util/Navigation.vue';
-
-const windowWidth = ref(window.innerWidth);
-const widthMobile = 700;
-
-const onResize = () => {
-    windowWidth.value = window.innerWidth;
-}
-
-onMounted(() => {
-    window.addEventListener('resize', onResize);
-});
-
-onUnmounted(() => {
-    window.removeEventListener('resize', onResize);
-});
-
-
-const isDesktop = () => windowWidth.value > widthMobile;
-
-const emit = defineEmits(['open-menu']);
-
-const openMenu = () => {
-    emit('open-menu');
-}
+import { faBalanceScale } from '@fortawesome/free-solid-svg-icons';
 </script>
 
 <template>
     <div class="header">
-        <div class="hero">
-            <Navigation class="navigation" v-if="!isDesktop()" @click-menu="openMenu"/>
-            <div class="worker">
-                <h1>Gaby Lima</h1>
-                <p>Graduando em Direito</p>
+        <div class="header-title">
+            <font-awesome-icon
+                :icon="faBalanceScale"
+            />
+            <h1>Gaby Lima</h1>
+            <div class="occupation">
+                <p>Estagiária de Direito</p>
             </div>
-            <nav v-if="isDesktop()" class="menu-desktop">
-                <RouterLink to="/curriculo-gaby/">Inicio</RouterLink>
-                <RouterLink to="/curriculo-gaby/portfolio">Portfólio</RouterLink>
-                <RouterLink to="/curriculo-gaby/contato">Contato</RouterLink>
-                <RouterLink to="/curriculo-gaby/sobre">Sobre</RouterLink>
-            </nav>
-            <img src="../../images/hero.jpeg" alt="Gaby Lima Foto">
+        </div>
+        <div class="options">
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre Mim</a></li>
+                <li><a href="#">Objetivo</a></li>
+                <li><a href="#">Formação</a></li>
+                <li><a href="#">Experiência</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
         </div>
     </div>
 </template>
@@ -51,59 +31,85 @@ const openMenu = () => {
 <style scoped>
     a {
         text-decoration: none;
-        color: var(--font-color);
+        color: var(--light-gray);
         transition: color 0.3s ease;
         cursor: pointer;
         position: relative;
     }
+    .svg-inline--fa {
+        color: var(--light-gray);
+    }
     h1 {
         font-family: 'Imperial Script', 'Poppins', sans-serif;
         font-weight: 500;
-        font-size: 3.3rem;
-        color: var(--font-primary-2);
+        font-size: 4rem;
+        color: var(--accent);
     }
-    img {
-            width: 90px;
-            height: auto;
-            border-radius: 100%;
+    .occupation {
+        background-color: var(--primary-medium);
+
+        border-radius: 20px;
+        padding: 8px 12px;
+
+        p {
+            color: white;
         }
-
-    .hero {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-
-        width: 95%;
     }
     .header {
-        background-color: var(--bg-primary-1);
-        color: var(--font-color);
-
-        height: auto;
-        padding: 0 15px;
+        background-color: var(--primary-dark);
+        padding: 8px 0;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+        box-shadow: 0 0 0 100vmax var(--primary-dark);
+        clip-path: inset(-100vmax -100vmax 0 -100vmax);
+        isolation: isolate;
 
         display: flex;
         flex-direction: column;
+        gap: 5px;
         align-items: center;
 
+        position: sticky;
+        top: 0;
+        z-index: 1000;
 
-        .menu-desktop {
+        .header-title {
             display: flex;
-            align-self: center;
-            gap: 25px;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
         }
+
+        ul {
+            list-style-type: none;
+
+            display: flex;
+            gap: 25px;
+
+            a {
+                font-size: 1.1rem;
+                padding: 5px 8px;
+                transition: all 0.3s ease-in-out;
+                border-radius: 5px;
+                font-weight: 500;
+            }
+        }
+
+        p {
+            color: var(--light-gray);
+        }
+
         a:hover {
-            color: var(--font-primary-2);
+            color: var(--accent);
+            background-color: var(--primary-medium);
         }
         a::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
+            height: 4px;
             bottom: 0;
             left: 50%;
-            background: var(--font-color);
+            background: var(--light-gray);
             transition: all 0.3s ease;
             transform: translateX(-50%);
             border-radius: 3px;
@@ -116,11 +122,11 @@ const openMenu = () => {
     :deep(h1) {
         background: linear-gradient(
             135deg,
-            var(--font-primary-2),
-            var(--font-primary-2) 10%,
+            var(--accent),
+            var(--accent) 10%,
             #ffffff 30%,
-            var(--font-primary-2) 50%,
-            var(--font-primary-2)
+            var(--accent) 50%,
+            var(--accent)
         );
         background-size: 200% 100%;
         -webkit-background-clip: text;
@@ -138,48 +144,6 @@ const openMenu = () => {
         }
         100% {
             background-position: -100% 0;
-        }
-    }
-
-    @media (max-width: 440px) {
-        h1 {
-            font-size: 2.5rem;
-        }
-        p {
-            font-size: 0.8rem;
-        }
-        img {
-            width: 80px;
-        }
-    }
-
-    @media (max-width: 350px) {
-        h1 {
-            font-size: 2.1rem;
-        }
-        p {
-            font-size: 0.65rem;
-        }
-        img {
-            width: 70px;
-        }
-        .navigation {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-        .header {
-            padding: 0 5px;
-        }
-    }
-    @media (max-width: 270px) {
-        h1 {
-            font-size: 1.6rem;
-        }
-        p {
-            font-size: 0.5rem;
-        }
-        img {
-            width: 60px;
         }
     }
 
