@@ -26,7 +26,7 @@
 <style scoped>
     section {
         background-color: var(--light-gray);
-        padding: 50px 0;
+        padding: 60px 0;
 
         display: flex;
         justify-content: center;
@@ -35,10 +35,10 @@
     .objective {
         background-color: white;
 
-        width: 92%;
+        width: 70%;
         border-radius: 10px;
 
-        padding: 30px 40px;
+        padding: 30px 50px;
 
         display: flex;
         flex-direction: column;

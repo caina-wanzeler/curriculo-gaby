@@ -61,6 +61,8 @@
             flex-direction: column;
             gap: 20px;
 
+            padding: 0 50px;
+
             h1 {
                 font-size: 2.7rem;
                 font-weight: 600;

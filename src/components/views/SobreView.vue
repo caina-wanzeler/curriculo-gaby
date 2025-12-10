@@ -82,7 +82,7 @@ const idade = computed(() => {
         padding: 40px 0;
     }
     .about {
-        padding: 0 30px;
+        padding: 0 80px;
 
         display: flex;
         flex-direction: column;

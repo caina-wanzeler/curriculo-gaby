@@ -1,5 +1,33 @@
 <script setup>
-import { faBalanceScale } from '@fortawesome/free-solid-svg-icons';
+import { faBalanceScale, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+
+const widthPadrao = 750;
+
+const windowWidth = ref(window.innerWidth)
+
+const updateWidth = () => {
+    windowWidth.value = window.innerWidth;
+}
+
+onMounted(() => {
+    window.addEventListener('resize', updateWidth)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('resize', updateWidth)
+})
+
+const isMobile = computed(() => {
+    return windowWidth.value <= widthPadrao;
+})
+
+const menuHamburguer = ref(true);
+
+const clickMenuHamburguer = () => {
+    menuHamburguer.value = !menuHamburguer.value;
+}
+
 </script>
 
 <template>
@@ -12,8 +40,26 @@ import { faBalanceScale } from '@fortawesome/free-solid-svg-icons';
             <div class="occupation">
                 <p>Estagiária de Direito</p>
             </div>
+            <div 
+                v-if="isMobile" 
+                @click="clickMenuHamburguer"
+                class="button-options"
+            >
+                <font-awesome-icon 
+                    v-if="menuHamburguer" 
+                    :icon="faBars"
+                />
+                <font-awesome-icon 
+                    v-else 
+                    :icon="faTimes"
+                />
+            </div>
+            
         </div>
-        <div class="options">
+        <div 
+            v-if="!isMobile || !menuHamburguer"
+            class="options"
+        >
             <ul>
                 <li><a href="#">Início</a></li>
                 <li><a href="#">Sobre Mim</a></li>
@@ -144,6 +190,57 @@ import { faBalanceScale } from '@fortawesome/free-solid-svg-icons';
         }
         100% {
             background-position: -100% 0;
+        }
+    }
+
+    @media (max-width: 750px) {
+        ul {
+            flex-direction: column;
+            align-items: center;
+
+            transition: all 0.3s ease;
+            max-height: 300px;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        .occupation {
+            font-size: 0.7rem;
+        }
+        .svg-inline--fa {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h1 {
+            font-size: 1.5rem;
+        }
+        .occupation {
+            font-size: 0.5rem;
+        }
+        .svg-inline--fa {
+            width: 26px;
+            height: 26px;
+        }
+        .header {
+            display: flex;
+            gap: 2px;
+        }
+    }
+
+    @media (max-width: 320px) {
+        h1 {
+            font-size: 1.3rem;
+        }
+        .occupation {
+            font-size: 0.3rem;
+        }
+        .svg-inline--fa {
+            width: 20px;
+            height: 20px;
         }
     }
 
