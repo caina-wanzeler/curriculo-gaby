@@ -256,5 +256,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             }
         }
     }
+
+    @media (max-width: 800px) {
+        .container {
+            flex-direction: column;
+            padding: 0 0;
+            
+            .contact-container,
+            .contact-form {
+                width: 100%;
+            }
+        }
+    }
     
 </style>
