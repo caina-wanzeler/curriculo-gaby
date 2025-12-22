@@ -23,8 +23,6 @@ const props = defineProps({
 
 <style scoped>
     .content {
-        width: 60%;
-
         padding: 20px 30px;
 
         display: flex;
@@ -57,15 +55,42 @@ const props = defineProps({
         gap: 10px;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 750px) {
+        .content {
+            width: 70%;
+        }
+    }
+
+    @media (max-width: 650px) {
         .content {
             width: 80%;
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
         .content {
             width: 90%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        h3 {
+            font-size: 1.1rem;
+        }
+        li {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 400px) {
+        h3 {
+            font-size: 1rem;
+        }
+        li {
+            font-size: 0.8rem;
+        }
+        p {
+            font-size: 0.9rem;
         }
     }
 </style>

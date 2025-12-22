@@ -110,11 +110,20 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         font-weight: 600;
         
     }
+    @media (max-width: 330px) {
+        h3 {
+            font-size: 1.3rem;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+    }
     .contatar {
         padding-left: 10px;
         padding-bottom: 20px;
     }
     .container {
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -126,7 +135,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         display: grid;
         gap: 12px;
         padding: 20px;
-        width: 50%;
 
         ul {
             list-style-type: none;
@@ -134,6 +142,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             display: grid;
             gap: 20px;
             li {
+                width: 100%;
                 display: flex;
                 gap: 20px;
                 align-items: center;
@@ -165,6 +174,30 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                 }
                 p {
                     font-size: 0.95rem;
+                }
+            }
+
+            @media (max-width: 380px) {
+                li {
+                    display: flex;
+                    gap: 15px;
+                    padding: 15px 10px;
+                    p {
+                        font-size: 0.8rem;
+                    }
+                    
+                }
+            }
+
+            @media (max-width: 310px) {
+                li {
+                    display: flex;
+                    gap: 12px;
+                    padding: 15px 10px;
+                    p {
+                        font-size: 0.7rem;
+                    }
+                    
                 }
             }
         }
@@ -239,6 +272,32 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                     box-shadow: 0px 2px 6px rgba(18, 46, 187, 0.4);
                 }
             }
+            @media (max-width: 380px) {
+                label {
+                    font-size: 0.9rem;
+                }
+
+                input, 
+                select, 
+                textarea,
+                button {
+                    padding: 10px 12px;
+                    font-size: 0.7rem;
+                }
+            }
+            @media (max-width: 310px) {
+                label {
+                    font-size: 0.7rem;
+                }
+
+                input, 
+                select, 
+                textarea,
+                button {
+                    padding: 8px 10px;
+                    font-size: 0.6rem;
+                }
+            }
             .button-submit {
                 text-align: center;
                 background-color: var(--primary-dark);
@@ -256,7 +315,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             }
         }
     }
-
+    
     @media (max-width: 800px) {
         .container {
             flex-direction: column;

@@ -44,4 +44,45 @@
         flex-direction: column;
         gap: 30px;
     }
+
+    @media (max-width: 700px) {
+        .objective {
+            width: 80%;
+        }
+    }
+    @media (max-width: 600px) {
+        .objective {
+            width: 85%;
+        }
+    }
+    @media (max-width: 500px) {
+        .objective {
+            width: 90%;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        p {
+            font-size: 0.95rem;
+        }
+    }
+    @media (max-width: 440px) {
+        p {
+            font-size: 0.9rem;
+        }
+    }
+    @media (max-width: 380px) {
+        .objective {
+            width: 90%;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        p {
+            font-size: 0.85rem;
+        }
+    }
+    @media (max-width: 320px) {
+        p {
+            font-size: 0.75rem;
+        }
+    }
 </style>

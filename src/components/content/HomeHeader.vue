@@ -105,9 +105,6 @@ const clickMenuHamburguer = () => {
         background-color: var(--primary-dark);
         padding: 8px 0;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
-        box-shadow: 0 0 0 100vmax var(--primary-dark);
-        clip-path: inset(-100vmax -100vmax 0 -100vmax);
-        isolation: isolate;
 
         display: flex;
         flex-direction: column;

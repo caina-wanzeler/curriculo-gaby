@@ -38,6 +38,21 @@
         padding: 80px 0;
         text-align: center;
     }
+    @media (max-width: 520px) {
+        section {
+            padding: 60px 0;
+        }
+    }
+    @media (max-width: 480px) {
+        section {
+            padding: 40px 0;
+        }
+    }
+    @media (max-width: 350px) {
+        section {
+            padding: 30px 0;
+        }
+    }
     .summary {
         display: grid;
         gap: 50px;
@@ -56,6 +71,12 @@
             font-size: 1.2rem;
         }
 
+        @media (max-width: 480px) {
+            .objective {
+                width: 90%;
+            }
+        }
+
         .summary-content {
             display: flex;
             flex-direction: column;
@@ -64,8 +85,25 @@
             padding: 0 50px;
 
             h1 {
-                font-size: 2.7rem;
-                font-weight: 600;
+                font-family: "Imperial Script", "Poppins", sans-serif;
+                font-size: 4.2rem;
+                font-weight: 500;
+            }
+
+            @media (max-width: 380px) {
+                h1 {
+                    font-size: 3.5rem;
+                }
+            }
+            @media (max-width: 300px) {
+                h1 {
+                    font-size: 3rem;
+                }
+            }
+            @media (max-width: 280px) {
+                h1 {
+                    font-size: 2.8rem;
+                }
             }
 
             span {
@@ -103,6 +141,24 @@
                 color: rgb(81, 54, 214);
                 transform: translateY(-3px);
             }
+
+            @media (max-width: 350px) {
+                .contact {
+                    width: 13rem;
+                }
+                .experience {
+                    width: 11rem;
+                }
+                button {
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+    @media (max-width: 400px) {
+        .summary {
+            display: grid;
+            gap: 30px;
         }
     }
     button {

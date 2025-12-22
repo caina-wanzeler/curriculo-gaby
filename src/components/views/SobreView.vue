@@ -81,19 +81,18 @@ const idade = computed(() => {
     .title {
         padding: 40px 0;
     }
+    h3 {
+        color: var(--primary-medium);
+        font-size: 1.8rem;
+        font-weight: 600;
+        text-align: center;
+    }
     .about {
         padding: 0 80px;
 
         display: flex;
         flex-direction: column;
         gap: 30px;
-
-        h3 {
-            color: var(--primary-medium);
-            font-size: 1.8rem;
-            font-weight: 600;
-            text-align: center;
-        }
 
         ul {
             list-style-type: none;
@@ -113,6 +112,77 @@ const idade = computed(() => {
                     height: 24px;
                 }
             }
+            @media (max-width: 400px) {
+                li {
+                    display: flex;
+                    gap: 15px;
+                }
+            }
+
+            @media (max-width: 330px) {
+                li {
+                    display: flex;
+                    gap: 13px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 700px) {
+        .about {
+            padding: 0 60px;
+        }
+    } 
+    @media (max-width: 550px) {
+        .about {
+            padding: 0 40px;
+        }
+        p {
+            font-size: 0.95rem;
+        }
+        li {
+            font-size: 0.9rem;
+        }
+    } 
+    @media (max-width: 400px) {
+        h3 {
+            font-size: 1.3rem;
+        }
+        .about {
+            padding: 0 30px;
+        }
+        p {
+            font-size: 0.9rem;
+        }
+        li {
+            font-size: 0.8rem;
+            display: flex;
+            gap: 15px;
+        }
+    }
+
+    @media (max-width: 350px) {
+        p {
+            font-size: 0.8rem;
+        }
+        li {
+            font-size: 0.72rem;
+        }
+    }
+    @media (max-width: 320px) {
+        p {
+            font-size: 0.72rem;
+        }
+        li {
+            font-size: 0.65rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+    }
+    @media (max-width: 300px) {
+        li {
+            font-size: 0.6rem;
         }
     }
 </style>

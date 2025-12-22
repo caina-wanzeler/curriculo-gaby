@@ -11,16 +11,13 @@ import HomeFooter from './components/content/HomeFooter.vue';
 </script>
 
 <template>
-	<div>
-		<HomeHeader />
-		<ResumoView />
-		<SobreView />
-		<ObjetivoView />
-		<PortfolioView />
-		<ContatoView />
-		<HomeFooter />
-	</div>
-	
+	<HomeHeader />
+	<ResumoView />
+	<SobreView />
+	<ObjetivoView />
+	<PortfolioView />
+	<ContatoView />
+	<HomeFooter />
 </template>
 
 <style>
@@ -35,6 +32,12 @@ import HomeFooter from './components/content/HomeFooter.vue';
 		
 		font-family: 'Poppins', sans-serif;
 		font-weight: 500;
+	}
+
+	html, body {
+		overscroll-behavior: none;
+		min-height: 100dvh;
+		flex: 1;
 	}
 
 	:root {
@@ -76,5 +79,11 @@ import HomeFooter from './components/content/HomeFooter.vue';
 		width: 80px;
 		height: 4px;
 		background-color: var(--accent);
+	}
+
+	@media (max-width: 330px) {
+		h2 {
+			font-size: 1.85rem;
+		}
 	}
 </style>

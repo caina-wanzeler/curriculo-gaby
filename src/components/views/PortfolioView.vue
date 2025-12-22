@@ -67,4 +67,47 @@ const empregos = {
 
         margin: 20px;
     }
+    .experience {
+        width: 60%;
+    }
+
+    @media (max-width: 750px) {
+        .experience {
+            padding-left: 25px;
+            padding-right: 25px;
+            width: 70%;
+        }
+    }
+    @media (max-width: 650px) {
+        section {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .experience {
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 80%;
+        }
+    }
+    @media (max-width: 550px) {
+        section {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .experience {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 90%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        section {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .experience {
+            width: 100%;
+        }
+    }
 </style>
