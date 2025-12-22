@@ -8,7 +8,7 @@ const empregos = {
         activities: [
             'Impressão de mandados judiciais',
             'Auxilio nas atividades administrativas dos oficiais de justiça',
-            'Solicitacão de férias e diárias e ealatório de viagens'
+            'Solicitacão de férias e diárias e relatórios de viagens'
         ],
         time: '2025 - 2025 (atual)'
     },

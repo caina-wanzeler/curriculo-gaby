@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         <div class="container">
             <div class='contact-container'>
                 <h3 class="informacoes">Informações</h3>
-                <p>Preencha o formulário para entrar em contato comigo</p>
                 <ul>
                     <li>
                         <font-awesome-icon :icon="faMapMarkerAlt" />
@@ -52,6 +51,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             </div>
             <div class='contact-form'>
                 <h3 class="contatar">Contatar</h3>
+                <p class="contatar-text">Preencha o formulário para entrar em contato comigo</p>
                 <form action="" method="get">
                     <div class="input-form">
                         <label for="name">Nome Completo</label>
@@ -110,17 +110,17 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
         font-weight: 600;
         
     }
+    .contatar-text {
+        font-size: 0.85rem;
+        color: var(--gray);
+    }
     @media (max-width: 330px) {
         h3 {
             font-size: 1.3rem;
         }
-        p {
-            font-size: 0.9rem;
+        .contatar-text {
+            font-size: 0.7rem;
         }
-    }
-    .contatar {
-        padding-left: 10px;
-        padding-bottom: 20px;
     }
     .container {
         width: 100%;
@@ -209,6 +209,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
         display: flex;
         flex-direction: column;
+        gap: 20px;
         justify-content: center;
 
         background-color: white;

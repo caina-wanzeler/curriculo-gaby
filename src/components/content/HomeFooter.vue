@@ -40,7 +40,7 @@
         }
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 330px) {
         footer {
             padding: 13px;
         }
