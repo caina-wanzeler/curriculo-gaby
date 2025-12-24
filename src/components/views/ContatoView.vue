@@ -2,7 +2,71 @@
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faFilePdf, faMapMarkerAlt, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { ref } from 'vue';
 
+const form = ref({
+    nome: '',
+    email: '',
+    empresa: '',
+    assunto: '',
+    mensagem: ''
+})
+
+const isLoading = ref(false)
+const message = ref(null)
+
+const submitForm = async () => {
+    if (!form.value.nome || !form.value.email || !form.value.assunto || !form.value.mensagem) {
+        message.value = {
+            type: 'error',
+            text: 'Por favor, preencha todos os campos obrigatórios.'
+        } 
+        return
+    }
+
+    isLoading.value = true
+    message.value = null
+
+    try {
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbzAM9qJm2SooJPTi-tGqrAuLSAxOOlcSXnnxorzqHiCsbbDiVBC-gc2TuaIFdxky1f7/exec'
+
+        const response = await fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(form.value)
+        })
+
+        form.value = {
+            nome: '', 
+            email: '', 
+            empresa: '', 
+            assunto: '', 
+            mensagem: '' 
+        }
+
+        message.value = {
+            type: 'success',
+            text: '✅ Mensagem enviada com sucesso! Entrarei em contato em breve.'
+        }
+    } catch (error) {
+        console.error("Erro: ", error)
+        message.value = {
+            type: 'error',
+            text: '❌ Ocorreu um erro ao enviar. Você pode tentar novamente ou me contatar diretamente por email.'
+        }
+    } finally {
+        isLoading.value = false
+
+        if (message.value?.type === 'success') {
+            setTimeout(() => {
+                message.value = null
+            }, 500)
+        }
+    }
+}
 </script>
 
 <template>
@@ -23,21 +87,21 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                         <font-awesome-icon :icon="faEnvelope"/>
                         <div class="contact">
                             <h4>E-mail</h4>
-                            <p>gaby.lima@gmail.com</p>
+                            <p>gabriellyinstitucional@gmail.com</p>
                         </div>
                     </li>
                     <li>
                         <font-awesome-icon :icon="faLinkedin"/>
                         <div class="contact">
                             <h4>LinkedIn</h4>
-                            <p>linkedin.gaby.lima.com</p>
+                            <p>Linkedin <a href="#">aqui</a></p>
                         </div>
                     </li>
                     <li>
                         <font-awesome-icon :icon="faPhone"/>
                         <div class="contact">
                             <h4>Telefone</h4>
-                            <p>(63) 91234-5678</p>
+                            <p>(63) 99916-6693</p>
                         </div>
                     </li>
                     <li>
@@ -52,25 +116,44 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
             <div class='contact-form'>
                 <h3 class="contatar">Contatar</h3>
                 <p class="contatar-text">Preencha o formulário para entrar em contato comigo</p>
-                <form action="" method="get">
+                <form @submit.prevent="submitForm" netlify>
                     <div class="input-form">
                         <label for="name">Nome Completo</label>
-                        <input type="text" name="name">
+                        <input
+                            v-model="form.nome"
+                            type="text" 
+                            name="name"
+                            required
+                        >
                     </div>
                     
                     <div class="input-form">
                         <label for="email">E-mail</label>
-                        <input type="email" name="email">
+                        <input 
+                            v-model="form.email"
+                            type="email" 
+                            name="email"
+                            required
+                        >
                     </div>
                     
                     <div class="input-form">
                         <label for="company">Empresa/Instituição</label>
-                        <input type="text" name="company">
+                        <input
+                            v-model="form.empresa"
+                            type="text"
+                            name="company"
+                            required
+                        >
                     </div>
                     
                     <div class="input-form">
                         <label for="subject">Assunto</label>
-                        <select name="subject" required>
+                        <select 
+                            v-model="form.assunto"
+                            name="subject"
+                            required
+                        >
                             <option value>Selecione...</option>
                             <option value="estagio">Proposta de Estágio</option>
                             <option value="emprego">Proposta de Emprego</option>
@@ -82,7 +165,12 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
                     
                     <div class="input-form">
                         <label for="message">Mensagem</label>
-                        <textarea type="text" name="name"></textarea>
+                        <textarea
+                            v-model="form.mensagem"
+                            type="text" 
+                            name="name"
+                            required
+                        ></textarea>
                     </div>
 
                     <div class="input-form">
