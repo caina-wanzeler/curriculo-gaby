@@ -91,17 +91,17 @@ const submitForm = async () => {
                         </div>
                     </li>
                     <li>
-                        <font-awesome-icon :icon="faLinkedin"/>
-                        <div class="contact">
-                            <h4>LinkedIn</h4>
-                            <p>Linkedin <a href="#">aqui</a></p>
-                        </div>
-                    </li>
-                    <li>
                         <font-awesome-icon :icon="faPhone"/>
                         <div class="contact">
                             <h4>Telefone</h4>
                             <p>(63) 99916-6693</p>
+                        </div>
+                    </li>
+                    <li>
+                        <font-awesome-icon :icon="faLinkedin"/>
+                        <div class="contact">
+                            <h4>LinkedIn</h4>
+                            <p>Linkedin <a href="#">aqui</a></p>
                         </div>
                     </li>
                     <li>
@@ -220,6 +220,9 @@ const submitForm = async () => {
         padding: 0 40px;
     }
     .contact-container {
+        background-color: white;
+        border-radius: 10px;
+        height: 100%;
         display: grid;
         gap: 12px;
         padding: 20px;
@@ -228,7 +231,7 @@ const submitForm = async () => {
             list-style-type: none;
 
             display: grid;
-            gap: 20px;
+            gap: 35px;
             li {
                 width: 100%;
                 display: flex;
@@ -243,7 +246,7 @@ const submitForm = async () => {
                 transition: all 0.4s ease;
 
                 &:hover {
-                    box-shadow: 0px 4px 6px rgba(18, 46, 187, 0.4);
+                    box-shadow: 0px 3px 8px rgba(18, 46, 187, 0.4);
                 }
 
                 .svg-inline--fa {
@@ -405,7 +408,7 @@ const submitForm = async () => {
         }
     }
     
-    @media (max-width: 800px) {
+    @media (max-width: 860px) {
         .container {
             flex-direction: column;
             padding: 0 0;
