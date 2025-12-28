@@ -5,7 +5,7 @@
 <template>
     <section>
         <div class="objective">
-            <h2>Objetivo Profissional</h2>
+            <h2 id="objetivo">Objetivo Profissional</h2>
             <p>
                 Busco uma oportunidade de estágio em escritório de 
                 advocacia onde possa aplicar meus conhecimentos 

@@ -36,8 +36,16 @@ import HomeFooter from './components/content/HomeFooter.vue';
 
 	html, body {
 		overscroll-behavior: none;
+		scroll-behavior: smooth;
+  		scroll-padding-top: 150px;
 		min-height: 100dvh;
 		flex: 1;
+	}
+
+	@media (max-width: 751px) {
+		html, body {
+			scroll-padding-top: 80px;
+		}
 	}
 
 	:root {

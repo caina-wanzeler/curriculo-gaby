@@ -71,7 +71,7 @@ const submitForm = async () => {
 
 <template>
     <section>
-        <h2>Entre em Contato</h2>
+        <h2 id="contato">Entre em Contato</h2>
         <div class="container">
             <div class='contact-container'>
                 <h3 class="informacoes">Informações</h3>

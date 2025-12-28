@@ -12,10 +12,19 @@ const updateWidth = () => {
 
 onMounted(() => {
     window.addEventListener('resize', updateWidth)
+    window.addEventListener('scroll', updateHeaderState, {
+        passive: true
+    })
+    window.addEventListener('wheel', updateHeaderState, {
+        passive: true
+    })
+    updateHeaderState()
 })
 
 onUnmounted(() => {
     window.removeEventListener('resize', updateWidth)
+    window.removeEventListener('scroll', updateHeaderState)
+    window.removeEventListener('wheel', updateHeaderState)
 })
 
 const isMobile = computed(() => {
@@ -26,6 +35,10 @@ const menuHamburguer = ref(true);
 
 const clickMenuHamburguer = () => {
     menuHamburguer.value = !menuHamburguer.value;
+}
+
+const closeMenuHamburguer = () => {
+    menuHamburguer.value = true;
 }
 
 </script>
@@ -61,12 +74,11 @@ const clickMenuHamburguer = () => {
             class="options"
         >
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Sobre Mim</a></li>
-                <li><a href="#">Objetivo</a></li>
-                <li><a href="#">Formação</a></li>
-                <li><a href="#">Experiência</a></li>
-                <li><a href="#">Contato</a></li>
+                <li @click="closeMenuHamburguer"><a href="#inicio">Início</a></li>
+                <li @click="closeMenuHamburguer"><a href="#sobre">Sobre Mim</a></li>
+                <li @click="closeMenuHamburguer"><a href="#objetivo">Objetivo</a></li>
+                <li @click="closeMenuHamburguer"><a href="#experiencia">Experiência</a></li>
+                <li @click="closeMenuHamburguer"><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </div>
@@ -111,9 +123,11 @@ const clickMenuHamburguer = () => {
         gap: 5px;
         align-items: center;
 
-        position: sticky;
-        top: 0;
         z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
 
         .header-title {
             display: flex;
@@ -134,6 +148,20 @@ const clickMenuHamburguer = () => {
                 transition: all 0.3s ease-in-out;
                 border-radius: 5px;
                 font-weight: 500;
+            }
+            li {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 751px) {
+            ul {
+                display: inherit;
+                gap: 10px;
+
+                a {
+                    font-size: 0.8rem;
+                }
             }
         }
 
@@ -160,6 +188,16 @@ const clickMenuHamburguer = () => {
         a:hover::after {
             width: 100%;
         }
+    }
+    .header.visible {
+        transform: translateY(var(--translate-y, -100%));
+    }
+    .header.fixed {
+        transform: translateY(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .header.fixed:not(.visible) {
+        transform: translateY(-100%);
     }
 
     :deep(h1) {
@@ -190,10 +228,9 @@ const clickMenuHamburguer = () => {
         }
     }
 
-    @media (max-width: 750px) {
+    @media (max-width: 751px) {
         ul {
             flex-direction: column;
-            align-items: center;
 
             transition: all 0.3s ease;
             max-height: 300px;

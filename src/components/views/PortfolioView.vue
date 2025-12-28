@@ -37,7 +37,7 @@ const empregos = {
 
 <template>
     <section>
-        <h2>Experiência</h2>
+        <h2 id="experiencia">Experiência</h2>
         <div class="activities">
             <Experience
                 class="experience"

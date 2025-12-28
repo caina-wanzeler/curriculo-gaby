@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <section>
+    <section id="inicio">
         <div class="summary">
             <div class="objective">
                 <p>Buscando oportunidade de estágio em Direito</p>
@@ -18,14 +18,22 @@
                 </p>
             </div>
             <div class="buttons">
-                <button class="contact">Entre em Contato</button>
-                <button class="experience">Ver Experiência</button>
+                <a href="#contato">
+                    <button class="contact">Entre em Contato</button>
+                </a>
+                <a href="#experiencia">
+                    <button class="experience">Ver Experiência</button>
+                </a>
+                
             </div>
         </div>
     </section>
 </template>
 
 <style scoped>
+    a {
+        color: inherit;
+    }
     section {
         background: linear-gradient(
             135deg, 

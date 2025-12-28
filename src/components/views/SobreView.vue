@@ -18,7 +18,7 @@ const idade = computed(() => {
 <template>
     <section>
         <div class="title">
-            <h2>Sobre Mim</h2>
+            <h2 id="sobre">Sobre Mim</h2>
         </div>
         <div class="about">
             <h3>Estudante de Direito | Futura Advogada</h3>
