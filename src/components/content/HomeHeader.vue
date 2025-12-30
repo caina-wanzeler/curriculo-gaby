@@ -58,7 +58,6 @@ const closeMenuHamburguer = () => {
                     :icon="faTimes"
                 />
             </div>
-            
         </div>
         <div 
             v-if="!isMobile || !menuHamburguer"
@@ -89,6 +88,10 @@ const closeMenuHamburguer = () => {
         color: var(--light-gray);
         width: 45px;
         height: 45px;
+    }
+    .button-options {
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     h1 {
         font-family: 'Imperial Script', 'Poppins', sans-serif;
@@ -139,7 +142,7 @@ const closeMenuHamburguer = () => {
             }
             li {
                 text-align: center;
-                font-size: 0.8rem;
+                font-size: 0.88rem;
             }
         }
 

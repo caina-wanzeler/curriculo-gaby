@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from 'vue';
+
+const periodoAtual = 5;
 
 </script>
 
@@ -11,7 +14,7 @@
             <div class="summary-content">
                 <h1>Gaby Lima</h1>
                 <p>
-                    Estudante de Direito no 4º período 
+                    Estudante de Direito no {{ periodoAtual }} º período 
                     <span>com paixão pela área jurídica</span> 
                     e busca por primeira experiência profissional 
                     em escritório de advocacia.
