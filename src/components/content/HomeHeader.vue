@@ -2,7 +2,7 @@
 import { faBalanceScale, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
-const widthPadrao = 750;
+const widthPadrao = 550;
 
 const windowWidth = ref(window.innerWidth)
 
@@ -12,19 +12,10 @@ const updateWidth = () => {
 
 onMounted(() => {
     window.addEventListener('resize', updateWidth)
-    window.addEventListener('scroll', updateHeaderState, {
-        passive: true
-    })
-    window.addEventListener('wheel', updateHeaderState, {
-        passive: true
-    })
-    updateHeaderState()
 })
 
 onUnmounted(() => {
     window.removeEventListener('resize', updateWidth)
-    window.removeEventListener('scroll', updateHeaderState)
-    window.removeEventListener('wheel', updateHeaderState)
 })
 
 const isMobile = computed(() => {
@@ -74,11 +65,11 @@ const closeMenuHamburguer = () => {
             class="options"
         >
             <ul>
-                <li @click="closeMenuHamburguer"><a href="#inicio">Início</a></li>
-                <li @click="closeMenuHamburguer"><a href="#sobre">Sobre Mim</a></li>
-                <li @click="closeMenuHamburguer"><a href="#objetivo">Objetivo</a></li>
-                <li @click="closeMenuHamburguer"><a href="#experiencia">Experiência</a></li>
-                <li @click="closeMenuHamburguer"><a href="#contato">Contato</a></li>
+                <li @click="closeMenuHamburguer()"><a href="#inicio">Início</a></li>
+                <li @click="closeMenuHamburguer()"><a href="#sobre">Sobre Mim</a></li>
+                <li @click="closeMenuHamburguer()"><a href="#objetivo">Objetivo</a></li>
+                <li @click="closeMenuHamburguer()"><a href="#experiencia">Experiência</a></li>
+                <li @click="closeMenuHamburguer()"><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </div>
@@ -96,11 +87,13 @@ const closeMenuHamburguer = () => {
     }
     .svg-inline--fa {
         color: var(--light-gray);
+        width: 45px;
+        height: 45px;
     }
     h1 {
         font-family: 'Imperial Script', 'Poppins', sans-serif;
         font-weight: 500;
-        font-size: 4rem;
+        font-size: 3rem;
         color: var(--accent);
     }
     .occupation {
@@ -123,11 +116,7 @@ const closeMenuHamburguer = () => {
         gap: 5px;
         align-items: center;
 
-        z-index: 1000;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        position: relative;
 
         .header-title {
             display: flex;
@@ -143,7 +132,6 @@ const closeMenuHamburguer = () => {
             gap: 25px;
 
             a {
-                font-size: 1.1rem;
                 padding: 5px 8px;
                 transition: all 0.3s ease-in-out;
                 border-radius: 5px;
@@ -151,13 +139,13 @@ const closeMenuHamburguer = () => {
             }
             li {
                 text-align: center;
+                font-size: 0.8rem;
             }
         }
 
-        @media (max-width: 751px) {
+        @media (max-width: 551px) {
             ul {
-                display: inherit;
-                gap: 10px;
+                gap: 3px;
 
                 a {
                     font-size: 0.8rem;
@@ -228,13 +216,36 @@ const closeMenuHamburguer = () => {
         }
     }
 
-    @media (max-width: 751px) {
+    @media (max-width: 551px) {
         ul {
+            display: flex;
             flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            gap: 2px;
 
             transition: all 0.3s ease;
-            max-height: 300px;
             overflow: hidden;
+
+            a {
+                display: inline-block;
+                width: fit-content;
+                text-align: center;
+                width: 100%;
+            }
+        }
+        .options {
+            background-color: var(--primary-dark);
+
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+
+            display: grid;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.4);
         }
         h1 {
             font-size: 2rem;

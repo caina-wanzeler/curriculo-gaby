@@ -408,7 +408,7 @@ const submitForm = async () => {
         }
     }
     
-    @media (max-width: 860px) {
+    @media (max-width: 880px) {
         .container {
             flex-direction: column;
             padding: 0 0;
